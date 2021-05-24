@@ -51,6 +51,7 @@ class XdripPlugin @Inject constructor(
         val source = bundle.getString(Intents.XDRIP_DATA_SOURCE_DESCRIPTION, "no Source specified")
         setSource(source)
         MainApp.getDbHelper().createIfNotExists(bgReading, "XDRIP")
+        nsUpload.uploadBg(bgReading, "XDRIP")
     }
 
     private fun setSource(source: String) {
