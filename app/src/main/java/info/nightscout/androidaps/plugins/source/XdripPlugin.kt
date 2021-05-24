@@ -10,6 +10,7 @@ import info.nightscout.androidaps.interfaces.PluginBase
 import info.nightscout.androidaps.interfaces.PluginDescription
 import info.nightscout.androidaps.interfaces.PluginType
 import info.nightscout.androidaps.logging.AAPSLogger
+import info.nightscout.androidaps.plugins.general.nsclient.NSUpload
 import info.nightscout.androidaps.logging.BundleLogger
 import info.nightscout.androidaps.logging.LTag
 import info.nightscout.androidaps.services.Intents
@@ -21,7 +22,8 @@ import javax.inject.Singleton
 class XdripPlugin @Inject constructor(
     injector: HasAndroidInjector,
     resourceHelper: ResourceHelper,
-    aapsLogger: AAPSLogger
+    aapsLogger: AAPSLogger,
+    private val nsUpload: NSUpload
 ) : PluginBase(PluginDescription()
     .mainType(PluginType.BGSOURCE)
     .fragmentClass(BGSourceFragment::class.java.name)
